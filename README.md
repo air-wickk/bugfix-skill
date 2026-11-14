@@ -61,11 +61,14 @@ python -m unittest discover -s tests -v
 
 A behavioral evaluation in a fresh OpenCode session is pending. The prompt and pass criteria are in `examples/evaluation-prompt.md`; no credentials or paid services are required to run it.
 
+Verified on OpenCode v2.2.5 (this machine): the installed CLI lists `focused-bugfix` for a disposable project with the skill copied into `.opencode/skills/`, and for this repository via its `opencode.json` source, using `GET /api/skill` with the location parameter. The loaded content is the `SKILL.md` body without frontmatter. That confirms discovery and loading, not model behavior; the behavioral evaluation above stays pending.
+
 ## What is in this repository
 
 ```text
 bugfix-skill/
 ├── README.md
+├── opencode.json                      registers ./skills for OpenCode opened here
 ├── skills/focused-bugfix/SKILL.md     the skill itself
 ├── examples/                          fictional fixtures and evaluation checklists
 └── tests/                             structural checks and executable fixture tests
