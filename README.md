@@ -14,7 +14,7 @@ Written for the OpenCode v2 skills format, checked against OpenCode v2.2.5:
 
 Anything else, including other OpenCode versions and other agents' skill loaders, is unverified here.
 
-Verified on the machine that produced this repository (OpenCode v2.2.5): with the skill folder copied into a test project's `.opencode/skills/`, the server API (`GET /api/skill`) listed the skill by ID `focused-bugfix` and returned its body with the frontmatter stripped. The same check passes inside this repository through the `opencode.json` source registered below. The full behavioral evaluation, where an agent follows the skill end to end on a fixture, is still pending; see Evaluation.
+Verified with OpenCode v2.2.5: I copied the skill folder into a disposable project's `.opencode/skills/`, and the server API (`GET /api/skill`) listed it by ID `focused-bugfix` with the frontmatter stripped from the loaded body. The same check passes inside this repository through the `opencode.json` source. The full behavioral evaluation, where an agent follows the skill end to end on a fixture, is still pending; see Evaluation.
 
 ## Installation
 
@@ -62,8 +62,6 @@ python -m unittest discover -s tests -v
 ```
 
 A behavioral evaluation in a fresh OpenCode session is pending. The prompt and pass criteria are in `examples/evaluation-prompt.md`; no credentials or paid services are required to run it.
-
-Verified on OpenCode v2.2.5 (this machine): the installed CLI lists `focused-bugfix` for a disposable project with the skill copied into `.opencode/skills/`, and for this repository via its `opencode.json` source, using `GET /api/skill` with the location parameter. The loaded content is the `SKILL.md` body without frontmatter. That confirms discovery and loading, not model behavior; the behavioral evaluation above stays pending.
 
 ## What is in this repository
 
