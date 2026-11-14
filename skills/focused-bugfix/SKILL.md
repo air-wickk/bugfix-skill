@@ -1,6 +1,7 @@
 ---
 name: focused-bugfix
 description: Reproduce a reported bug, make the smallest maintainable fix, verify it against normal and edge cases, and report honestly what was and was not tested. Use when the user asks to fix, debug, or patch a specific defect.
+license: MIT
 ---
 
 # Focused Bugfix

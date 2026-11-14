@@ -78,4 +78,4 @@ bugfix-skill/
 
 ## License
 
-None yet. One will be added only with the owner's approval.
+MIT. See [LICENSE](LICENSE). No third-party content is included in this repository.

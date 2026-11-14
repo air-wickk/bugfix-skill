@@ -15,6 +15,7 @@ SKILL = ROOT / "skills" / "focused-bugfix" / "SKILL.md"
 REQUIRED_FILES = [
     "README.md",
     ".gitignore",
+    "LICENSE",
     "opencode.json",
     "skills/focused-bugfix/SKILL.md",
     "examples/pure-code-bug/fixture/stats.py",
