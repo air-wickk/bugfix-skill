@@ -15,6 +15,7 @@ SKILL = ROOT / "skills" / "focused-bugfix" / "SKILL.md"
 REQUIRED_FILES = [
     "README.md",
     ".gitignore",
+    "opencode.json",
     "skills/focused-bugfix/SKILL.md",
     "examples/pure-code-bug/fixture/stats.py",
     "examples/pure-code-bug/test_regression.py",
@@ -93,12 +94,28 @@ class StructureTests(unittest.TestCase):
             self.assertTrue(any(n in gi for n in needle),
                             f".gitignore must cover {category}")
 
+    def test_opencode_json_registers_skills_source(self):
+        # Lets OpenCode discover the skill when opened inside this repo.
+        import json
+        cfg = json.loads((ROOT / "opencode.json").read_text(encoding="utf-8"))
+        self.assertEqual(
+            cfg.get("$schema"), "https://opencode.ai/config.json")
+        self.assertIn("./skills", cfg.get("skills", []))
+
     def test_readme_states_unverified_and_honest_status(self):
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
         self.assertIn("v2.2.5", readme)
         self.assertIn("unverified", readme.lower())
         self.assertIn("pending", readme.lower())
         self.assertIn("not", readme.lower())  # "not ... validated" claim
+
+    def test_opencode_json_registers_repo_skill_source(self):
+        # Lets OpenCode discover the skill when opened inside this repo.
+        import json
+
+        data = json.loads((ROOT / "opencode.json").read_text(encoding="utf-8"))
+        self.assertEqual(data.get("$schema"), "https://opencode.ai/config.json")
+        self.assertIn("./skills", data.get("skills", []))
 
 
 if __name__ == "__main__":

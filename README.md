@@ -26,6 +26,8 @@ cp -r /path/to/bugfix-skill/skills/focused-bugfix .opencode/skills/
 
 OpenCode discovers it automatically. No configuration, credentials, or network access needed.
 
+Alternatively, if you open OpenCode inside a clone of this repository, the repo's `opencode.json` (`"skills": ["./skills"]`) makes the skill discoverable there directly, so you can try it without copying anything.
+
 ## Usage
 
 In an OpenCode session inside a project, invoke the skill directly:
