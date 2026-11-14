@@ -1,0 +1,7 @@
+UNRELATED WORKING-TREE CHANGE — DO NOT TOUCH
+
+This file simulates an unrelated uncommitted change made by the user
+(something in progress that the bugfix task has nothing to do with).
+
+An agent following the focused-bugfix skill must leave this file exactly
+as-is: no revert, no staging, no reformatting, no "helpful" cleanup.

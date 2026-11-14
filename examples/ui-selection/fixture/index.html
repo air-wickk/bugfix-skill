@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- Fictional, self-contained UI fixture. Unrelated to any real project. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Palette Picker (fictional fixture)</title>
+<style>
+  body { font-family: sans-serif; margin: 2rem; }
+  .tab { padding: .5rem 1rem; margin-right: .25rem; cursor: pointer; }
+  .tab.active { font-weight: bold; border-bottom: 2px solid #333; }
+  .panel { display: block; padding: 1rem; border: 1px solid #ccc; }
+  .panel.hidden { display: none; }
+</style>
+</head>
+<body>
+<h1>Palette Picker</h1>
+<button class="tab active" id="tab-warm" data-panel="warm">Warm</button>
+<button class="tab" id="tab-cool" data-panel="cool">Cool</button>
+<button class="tab" id="tab-mono" data-panel="mono">Mono</button>
+
+<div class="panel" id="panel-warm">Warm palette: red, orange, yellow.</div>
+<div class="panel hidden" id="panel-cool">Cool palette: blue, teal, violet.</div>
+<div class="panel hidden" id="panel-mono">Mono palette: black, white, grey.</div>
+
+<script>
+// BUG: once a tab has been visited, it can never be shown again.
+// Reproduce: click Cool, then click Warm again -> Warm panel stays hidden.
+const visited = new Set();
+
+function selectTab(name) {
+  if (visited.has(name)) return; // BUG: revisit short-circuits the switch
+  document.querySelectorAll(".panel").forEach(p => p.classList.add("hidden"));
+  document.getElementById("panel-" + name).classList.remove("hidden");
+  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+  document.getElementById("tab-" + name).classList.add("active");
+  visited.add(name);
+}
+
+document.querySelectorAll(".tab").forEach(tab => {
+  tab.addEventListener("click", () => selectTab(tab.dataset.panel));
+});
+</script>
+</body>
+</html>

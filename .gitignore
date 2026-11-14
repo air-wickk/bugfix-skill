@@ -1,0 +1,37 @@
+# --- Secrets / credentials ---
+*.pem
+*.key
+*.p12
+.env
+.env.*
+credentials*.json
+*_secret*
+secrets/
+
+# --- Local configuration / machine-specific ---
+.vscode/
+.idea/
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# --- Caches ---
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+node_modules/
+
+# --- Logs ---
+*.log
+logs/
+
+# --- Generated output ---
+dist/
+build/
+output/
+coverage/
+htmlcov/
+.coverage
+_sandbox/
